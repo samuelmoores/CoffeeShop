@@ -1,0 +1,160 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package smoores_polymorphicassignment;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+/**
+ *
+ * @author samue
+ */
+public class SMoores_PolymorphicAssignment {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        ArrayList<Coffee> drinks = new ArrayList();
+        
+        showMenu(input, drinks);
+    }
+    
+    public static void showMenu(Scanner input, ArrayList<Coffee> drinks)
+    {
+        int userInput;
+        do{
+        System.out.println("(1) Create new drink");
+        System.out.println("(2) Drinks created");
+        System.out.println("(3) Quit");
+        userInput = input.nextInt();
+        
+        if(userInput == 1)
+        {
+            createDrink(input, drinks);
+        }else if(userInput == 2)
+        {
+            drinkHistory(drinks);
+        }else if(userInput == 3)
+        {
+            return;
+        }else
+        {
+            System.out.println("Invalid Input");
+        }
+        }while(userInput != 3);
+    }
+    
+    public static void createDrink(Scanner input, ArrayList<Coffee> drinks)
+    {
+        System.out.println("(1) White Chocolate Mocha");
+        System.out.println("(2) Dark Chocolate Mocha");
+        System.out.println("(3) Coffee Mocha");
+        System.out.println("(4) Peppermint Mocha");
+        int userInput = input.nextInt();
+        
+        switch(userInput)
+        {
+            case 1 -> {
+                Coffee wcm = new WhiteChocolateMocha();
+                
+                input.nextLine();
+                String ingrediantInput;
+                
+                System.out.println("Enter Ingrediants: ");
+                ingrediantInput = input.nextLine();
+                
+                if(ingrediantInput.equals("White Chocolate and Coffee"))
+                {
+                    wcm.setIngrediants(ingrediantInput);
+                    drinks.add(wcm);
+                    wcm.prepare();
+                }else
+                {
+                    System.out.println("Wrong ingrediant");
+                    System.out.println("The ingrediants are: " + wcm.getIngrediants());
+                }
+            }
+            
+            case 2 -> {
+                Coffee dcm = new DarkChocolateMocha();
+                
+                input.nextLine();
+                String ingrediantInput;
+                
+                System.out.println("Enter Ingrediants: ");
+                ingrediantInput = input.nextLine();
+                
+                if(ingrediantInput.equals("Dark Chocolate and Coffee"))
+                {
+                    dcm.setIngrediants(ingrediantInput);
+                    drinks.add(dcm);
+                    dcm.prepare();
+                }else
+                {
+                    System.out.println("Wrong ingrediant");
+                    System.out.println("The ingrediants are: " + dcm.getIngrediants());
+                }
+            }
+            
+            case 3 -> {
+                Coffee cm = new CoffeeMocha();
+                
+                input.nextLine();
+                String ingrediantInput;
+                
+                System.out.println("Enter Ingrediants: ");
+                ingrediantInput = input.nextLine();
+                
+                if(ingrediantInput.equals("Milk Chocolate and Coffee"))
+                {
+                    cm.setIngrediants(ingrediantInput);
+                    drinks.add(cm);
+                    cm.prepare();
+                }else
+                {
+                    System.out.println("Wrong ingrediant");
+                    System.out.println("The ingrediants are: " + cm.getIngrediants());
+                }
+            }
+            
+            case 4 -> {
+                Coffee pm = new PeppermintMocha();
+                
+                input.nextLine();
+                String ingrediantInput;
+                
+                System.out.println("Enter Ingrediants: ");
+                ingrediantInput = input.nextLine();
+                
+                if(ingrediantInput.equals("Peppermint Syrup Milk Chocolate and Coffee"))
+                {
+                    pm.setIngrediants(ingrediantInput);
+                    drinks.add(pm);
+                    pm.prepare();
+                }else
+                {
+                    System.out.println("Wrong ingrediant");
+                    System.out.println("The ingrediants are: " + pm.getIngrediants());
+                }
+            }
+        }
+        
+    }
+    
+    public static void drinkHistory(ArrayList<Coffee> drinks)
+    {
+        System.out.println("Drink Order History");
+        
+        for(int i = 0; i < drinks.size(); i++)
+        {
+            System.out.println("--------Order #" + (i+1) + "-----------");
+            System.out.println(drinks.get(i).toString());
+            System.out.println("---------------");
+        }
+    }
+    
+}
