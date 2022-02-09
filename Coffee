@@ -1,0 +1,59 @@
+package smoores_polymorphicassignment;
+
+public abstract class Coffee implements HowToMakeDrink {
+    private double price;
+    private String coffeeType;
+    private String storeName;
+    
+    protected Coffee ()
+    {
+        super();
+        storeName = "SMC Coffee Shop";
+    }
+    
+    protected Coffee(String sn)
+    {
+        this.storeName = sn;
+    }
+    
+    public abstract void ingrediant();
+    
+    @Override
+    public abstract void prepare();
+    
+    public abstract void setIngrediants(String c);
+    public abstract String getIngrediants();
+    
+    public abstract void setPrice(double p);
+    
+    public double getPrice()
+    {
+        return price;
+    }
+    
+    public void setCoffeeType(String c)
+    {
+        this.coffeeType = c;
+    }
+    
+    public String getCoffeeType()
+    {
+        return coffeeType;
+    }
+    
+    public void setStoreName(String s)
+    {
+        this.storeName = s;
+    }
+    
+    public String getStoreName()
+    {
+        return storeName;
+    }
+    
+    @Override
+    public String toString()
+    {
+        return "Store: " + storeName + "\n";
+    }
+}
