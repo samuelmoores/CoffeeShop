@@ -1,0 +1,79 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package smoores_polymorphicassignment;
+
+/**
+ *
+ * @author samue
+ */
+public class CoffeeMocha extends Coffee implements HowToMakeDrink {
+    private double price;
+    private String coffeeType;
+    private String ingrediants;
+    
+    public CoffeeMocha()
+    {
+        this.price = 1.99;
+        this.coffeeType = "Coffee Mocha";
+    }
+    
+    @Override
+    public void setCoffeeType(String c)
+    {
+        this.coffeeType = c;
+    }
+    
+    @Override
+    public String getCoffeeType()
+    {
+        return coffeeType;
+    }
+    
+    @Override
+    public void setIngrediants(String i)
+    {
+        this.ingrediants = i;
+    }
+    
+    @Override
+    public String getIngrediants()
+    {
+        return ingrediants;
+    }
+    
+    @Override
+    public void ingrediant()
+    {
+        System.out.println("Ingrediants:"
+                         + "\nCoffee - 500 grams"
+                         + "\nMilk Chocolate - 6 grams");
+    }
+    
+    @Override
+    public void prepare()
+    {
+        System.out.println("Type of Drink: " + coffeeType);
+        ingrediant();
+    }
+    
+    @Override
+    public void setPrice(double p)
+    {
+        this.price = p;
+    }
+    
+    @Override
+    public double getPrice()
+    {
+        return price;
+    }
+    
+    @Override
+    public String toString()
+    {
+        return super.toString() + "Type of Drink: " + coffeeType +
+                "\nPrice: " + price;
+    }
+}
