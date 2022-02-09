@@ -1,0 +1,84 @@
+package smoores_polymorphicassignment;
+
+public class PeppermintMocha extends Coffee{
+    private int peppermintSyrupAmount;
+    private String coffeeType;
+    private double price;
+    private String ingrediants;
+    
+    public PeppermintMocha()
+    {
+        peppermintSyrupAmount = 2;
+        coffeeType = "Peppermint Mocha";
+        price = 2.99;
+    }
+    
+    @Override
+    public void setCoffeeType(String c)
+    {
+        this.coffeeType = c;
+    }
+    
+    @Override
+    public String getCoffeeType()
+    {
+        return coffeeType;
+    }
+    
+    public void setSyrupAmount(int a)
+    {
+        this.peppermintSyrupAmount = a;
+    }
+    
+    public int getSyrupAmount()
+    {
+        return peppermintSyrupAmount;
+    }
+    
+    @Override
+    public void setIngrediants(String i)
+    {
+        this.ingrediants = i;
+    }
+    
+    @Override
+    public String getIngrediants()
+    {
+        return ingrediants;
+    }
+    
+    @Override
+    public void ingrediant()
+    {
+        System.out.println("Ingrediants:"
+                         + "\nCoffee - 500 grams"
+                         + "\nMilk Chocolate - 6 grams"
+                         + "\nPeppermint Syrup - 2 tbsp");
+    }
+    
+    @Override
+    public void prepare()
+    {
+        System.out.println("Type of Drink: " + coffeeType);
+        ingrediant();
+    }
+    
+    @Override
+    public void setPrice(double p)
+    {
+        this.price = p;
+    }
+    
+    @Override
+    public double getPrice()
+    {
+        return price;
+    }
+    
+    @Override
+    public String toString()
+    {
+        return super.toString() + "Type of Drink: " + coffeeType +
+                "\nPrice: " + price;
+    }
+}
